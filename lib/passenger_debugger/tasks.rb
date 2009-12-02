@@ -8,5 +8,9 @@ namespace :passenger do
   task :debug do
     system("touch tmp/debug.txt")
     Rake::Task['passenger:restart'].invoke
+    puts "Restarting app in debugging mode…\n"
+    puts "You must refresh your browser to load the app. Then press ENTER to continue…"
+    STDIN.gets
+    system 'rdebug -c'
   end
 end

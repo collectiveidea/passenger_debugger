@@ -2,7 +2,8 @@ passenger_debugger===============
 Restart passenger in debug mode
 
 == INSTALL:
-  $ gem install redinger-passenger_debugger -s http://gems.github.com
+
+$ gem install passenger_debugger
   
 In development.rb add:
 
@@ -23,14 +24,11 @@ Add the following lines to your ~/.rdebugrc
     set autoreload
 
 == USAGE:
-  # Restart passenger in debug
-  rake passenger:debug
+Use the rake task to enter debug mode
 
-  # Start loading a web page
-  # Connect to the remote process
-  rdebug -c
-  
-  # Once you exit the debugger, you'll need to restart in debug mode to reconnect
+    $ rake passenger:debug
+
+The rake task will pause to wait for you to refresh your browser. After refreshing, press enter to enter the debugger.
  
 == NOTES:
   If you need to exit out of debug mode in a hurry, just remove the tmp/debug.txt file
