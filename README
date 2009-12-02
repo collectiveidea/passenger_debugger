@@ -1,14 +1,23 @@
 passenger_debugger===============
-Restart passenger in debug model
+Restart passenger in debug mode
 
 == INSTALL:
-  gem install redinger-passenger_debugger -s http://gems.github.com
+  $ gem install redinger-passenger_debugger -s http://gems.github.com
   
-  In development.rb add:
-    config.gem 'redinger-passenger_debugger', :lib => 'passenger_debugger'
-  In your Rakefile add:
-    require 'passenger_debugger'
-  Add the following lines to your ~/.rdebugrc
+In development.rb add:
+
+    config.gem 'passenger_debugger'
+
+In your Rakefile add:
+
+    begin
+      require 'passenger_debugger/tasks'
+    rescue LoadError
+      STDERR.puts "Install passenger_debugger to enable debugging"
+    end
+
+Add the following lines to your ~/.rdebugrc
+
     set autoeval
     set autolist
     set autoreload
